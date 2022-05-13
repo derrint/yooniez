@@ -1,6 +1,6 @@
 export const AppConfig = {
   site_name: 'SimpleDuck',
-  title: 'Simple Duck Studios',
-  description: 'Creative Agency',
+  title: 'Yooniez',
+  description: 'Into The Yooniverse',
   locale: 'en',
 };

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { formatEther } from '@ethersproject/units';
+import { useEthers, useEtherBalance } from '@usedapp/core';
 import Link from 'next/link';
 import { Fade } from 'react-reveal';
 
@@ -32,6 +34,13 @@ const Header = () => {
 
     return () => {};
   }, [state.isReady]);
+
+  const { activateBrowserWallet, account } = useEthers();
+  const etherBalance = useEtherBalance(account);
+
+  function handleConnectWallet() {
+    activateBrowserWallet();
+  }
 
   return (
     <Background
@@ -93,6 +102,20 @@ const Header = () => {
                 </li>
               )
             )}
+            <li>
+              <div className="text-right">
+                {account ? (
+                  <div>{etherBalance && formatEther(etherBalance)} ETH</div>
+                ) : (
+                  <button
+                    className="text-base lg:text-lg hover:text-secondarybg-primary px-4 lg:px-6 py-2 lg:py-4 rounded-full"
+                    onClick={handleConnectWallet}
+                  >
+                    Connect to a wallet
+                  </button>
+                )}
+              </div>
+            </li>
           </NavbarTwoColumns>
         </Section>
       </Fade>

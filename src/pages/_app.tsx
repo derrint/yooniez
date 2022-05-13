@@ -1,3 +1,5 @@
+import { DAppProvider, Config, Mainnet } from '@usedapp/core';
+import { getDefaultProvider } from 'ethers';
 import { AppProps } from 'next/app';
 import { Provider } from 'overmind-react';
 
@@ -9,14 +11,23 @@ import { AppConfig } from '@utils/AppConfig';
 
 import '@styles/global.css';
 
+const config: Config = {
+  readOnlyChainId: Mainnet.chainId,
+  readOnlyUrls: {
+    [Mainnet.chainId]: getDefaultProvider('mainnet'),
+  },
+};
+
 const MyApp = ({ Component, pageProps }: AppProps) => (
   <Provider value={store}>
-    <div className="antialiased text-black bg-white">
-      <Meta title={AppConfig.title} description={AppConfig.description} />
-      <Header />
-      <Component {...pageProps} />
-      <Footer />
-    </div>
+    <DAppProvider config={config}>
+      <div className="antialiased text-black bg-white">
+        <Meta title={AppConfig.title} description={AppConfig.description} />
+        <Header />
+        <Component {...pageProps} />
+        <Footer />
+      </div>
+    </DAppProvider>
   </Provider>
 );
 
