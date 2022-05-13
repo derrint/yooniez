@@ -1,4 +1,4 @@
-# Simple Duck Studios Landing Page
+# Yooniez Landing Page
 ### Requirements
 
 - Node.js and npm / yarn
