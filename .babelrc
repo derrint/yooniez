@@ -1,0 +1,36 @@
+{
+  "presets": [
+    [
+      "next/babel",
+      {
+        "styled-jsx": {
+          "plugins": ["styled-jsx-plugin-postcss"]
+        }
+      }
+    ]
+  ],
+  "env": {
+    "production": {
+      "plugins": ["transform-remove-console"]
+    }
+  },
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./src"],
+        "alias": {
+          "@components": "./src/components",
+          "@templates": "./src/templates",
+          "@constant": "./src/constant",
+          "@data": "./src/data",
+          "@overmind": "./src/overmind",
+          "@images": "./public/assets/images",
+          "@videos": "./public/assets/videos",
+          "@styles": "./src/styles",
+          "@utils": "./src/utils"
+        }
+      }
+    ]
+  ]
+}
