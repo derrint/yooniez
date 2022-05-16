@@ -1,17 +1,21 @@
 import React from 'react';
 
-import { formatEther } from '@ethersproject/units';
-import { useEthers, useEtherBalance } from '@usedapp/core';
-import Link from 'next/link';
+import { useEthers } from '@usedapp/core';
+// import Link from 'next/link';
 import { Fade } from 'react-reveal';
 
 import { Background } from '@components/background';
-import { DropdownMenu } from '@components/dropdown';
+// import { DropdownMenu } from '@components/dropdown';
 import { Section } from '@components/layout';
+import { Modal } from '@components/modal';
 import { NavbarTwoColumns } from '@components/navigation/NavbarTwoColumns';
-import { menus } from '@data/index';
+// import { menus } from '@data/index';
+import { useActions, useState } from '@overmind/index';
 
 const Header = () => {
+  const { modal } = useState();
+  const { showModal, hideModal } = useActions();
+
   const [state, setState] = React.useState({
     isReady: false,
     isAnimationDone: false,
@@ -35,16 +39,24 @@ const Header = () => {
     return () => {};
   }, [state.isReady]);
 
+  // ----- Metamask related -----
   const { activateBrowserWallet, account } = useEthers();
-  const etherBalance = useEtherBalance(account);
 
   function handleConnectWallet() {
     activateBrowserWallet();
   }
 
+  React.useEffect(() => {
+    if (modal.name === 'connect-wallet' && modal.isVisible) {
+      hideModal();
+    }
+
+    return () => {};
+  }, [account]);
+
   return (
     <Background
-      color="bg-white"
+      color="bg-primary"
       className={`fixed top-0 w-full z-10 transition-all duration-300 ${
         state.isAnimationDone ? 'shadow-lg' : ''
       }`}
@@ -54,13 +66,13 @@ const Header = () => {
           <NavbarTwoColumns
             logo={
               <img
-                src="/assets/images/logos/logo-sds.svg"
+                src="/assets/images/logos/logo-yooniez-w.svg"
                 alt=""
-                className="h-10 md:h-12 lg:h-16 aspect-auto"
+                className="h-4 md:h-5 lg:h-6 aspect-auto"
               />
             }
           >
-            {menus.map(
+            {/* {menus.map(
               ({
                 id,
                 label,
@@ -88,10 +100,10 @@ const Header = () => {
                     ) : (
                       <Link href={href} passHref>
                         <a
-                          className={`text-base lg:text-lg hover:text-secondary ${
+                          className={`text-base lg:text-lg font-bold ${
                             isButton
-                              ? 'bg-primary px-4 lg:px-6 py-2 lg:py-4 rounded-full'
-                              : ''
+                              ? 'bg-tertiary text-black px-4 lg:px-6 py-2 lg:py-4'
+                              : 'text-white'
                           }`}
                         >
                           {label}
@@ -101,24 +113,117 @@ const Header = () => {
                   </div>
                 </li>
               )
-            )}
+            )} */}
             <li>
-              <div className="text-right">
+              <button
+                className="text-base font-bold px-4 py-3 border-2 border-white flex gap-2 text-white"
+                onClick={() => {
+                  if (!account) {
+                    showModal('connect-wallet');
+                  }
+                }}
+              >
+                <img
+                  src="/assets/images/logos/logo-metamask.svg"
+                  alt=""
+                  className="h-[22px] aspect-auto"
+                />
                 {account ? (
-                  <div>{etherBalance && formatEther(etherBalance)} ETH</div>
+                  <>
+                    {account &&
+                      `${account.slice(0, 6)}...${account.slice(
+                        account.length - 1,
+                        account.length
+                      )}`}
+                    ETH
+                  </>
                 ) : (
-                  <button
-                    className="text-base lg:text-lg hover:text-secondarybg-primary px-4 lg:px-6 py-2 lg:py-4 rounded-full"
-                    onClick={handleConnectWallet}
-                  >
-                    Connect to a wallet
-                  </button>
+                  'Connect Wallet'
                 )}
-              </div>
+              </button>
+            </li>
+            <li>
+              <button
+                className="text-base font-bold px-4 py-3 text-primaryDarkest bg-tertiary border-2 border-tertiary"
+                onClick={() => {
+                  if (!account) {
+                    showModal('connect-wallet');
+                  } else {
+                    showModal('tweet');
+                  }
+                }}
+              >
+                Enter The Labyrinth
+              </button>
+            </li>
+            <li>
+              <a
+                target={'_blank'}
+                href={
+                  'https://twitter.com/intent/tweet?hashtags=NFT%20%23WAGMI&original_referer=https%3A%2F%2Fpublish.twitter.com%2F&ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Eshare%7Ctwgr%5E&text=Game%20on!%20Joining%20%40YoonizNFT%20%23InToTheYouniverse.%20I%20bet%20you%20should%20too.&url=https%3A%2F%2Fplay.yooniez.com'
+                }
+                rel="noreferrer"
+              >
+                <button
+                  type="submit"
+                  className="flex gap-2 items-center justify-center bg-gradient-to-r from-gradient-primary-start to-gradient-primary-end h-14 w-full sm:w-16 rounded-2xl shadow-md text-white"
+                >
+                  <span className="font-bold text-sm sm:hidden">Search</span>
+                </button>
+              </a>
             </li>
           </NavbarTwoColumns>
         </Section>
       </Fade>
+
+      <Modal name="connect-wallet">
+        <div className="text-left bg-primary text-white shadow-xl p-14">
+          <img
+            src="/assets/images/logos/logo-metamask.svg"
+            alt=""
+            className="h-[48px] aspect-auto mb-5"
+          />
+          <h1 className="text-2xl font-semibold mb-2">Connect Wallet</h1>
+          <p className="font-light mb-5">
+            Connect your wallet to be able to join
+            <br /> the Labyrinth
+          </p>
+          <button
+            className="text-base font-bold px-4 py-3 bg-secondary text-white"
+            onClick={handleConnectWallet}
+          >
+            Connect with Metamask
+          </button>
+        </div>
+      </Modal>
+
+      <Modal name="tweet">
+        <div className="text-left bg-primary text-white shadow-xl p-14">
+          <img
+            src="/assets/images/logos/logo-twitter.svg"
+            alt=""
+            className="h-[48px] aspect-auto mb-5"
+          />
+          <h1 className="text-2xl font-semibold mb-2">
+            Step 1 - Tweet to enter Labyrinth
+          </h1>
+          <p className="font-light mb-5">
+            “Game on! Joining @YoonizNFT #InToTheYouniverse. I bet you should
+            too. <br />
+            https://uniques-links. here #NFT #WAGMI“
+          </p>
+          <a
+            className="inline-block text-base font-bold px-4 py-3 bg-secondary text-white"
+            target={'_blank'}
+            href={
+              'https://twitter.com/intent/tweet?hashtags=NFT%20%23WAGMI&original_referer=https%3A%2F%2Fpublish.twitter.com%2F&ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Eshare%7Ctwgr%5E&text=Game%20on!%20Joining%20%40YoonizNFT%20%23InToTheYouniverse.%20I%20bet%20you%20should%20too.&url=https%3A%2F%2Fplay.yooniez.com'
+            }
+            rel="noreferrer"
+          >
+            Tweet
+          </a>
+        </div>
+      </Modal>
     </Background>
   );
 };

@@ -14,13 +14,15 @@ module.exports = {
     //   '6xl': '4rem',
     // },
     fontFamily: {
-      sans: ['Space Grotesk'],
+      sans: ['Work Sans'],
     },
     extend: {
       colors: {
-        primary: '#FBE54D',
-        secondary: '#0083FF',
-        black: '#0D0D10',
+        primary: '#3D0C67',
+        primaryDarkest: '#200127',
+        secondary: '#FF4D00',
+        tertiary: '#FCEE21',
+        black: '#111111',
         // gray: '#888888',
       },
       lineHeight: {

@@ -25,7 +25,7 @@ const menus = [
   },
   {
     id: 4,
-    label: 'Contact Us',
+    label: 'Enter The Labyrinth',
     href: '/#contact',
     isButton: true,
     isDesktop: true,

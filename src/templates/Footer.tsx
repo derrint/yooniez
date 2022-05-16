@@ -35,7 +35,7 @@ const Footer = () => {
           <div className="w-full lg:w-6/12 flex justify-between lg:justify-start items-center gap-10">
             {/* <Image src={LogoBW} alt="" height={48} width={190} /> */}
             <img
-              src="/assets/images/logos/logo-sds-bw.svg"
+              src="/assets/images/logos/logo-yooniez-w.svg"
               alt=""
               className="h-[48px] aspect-auto"
             />

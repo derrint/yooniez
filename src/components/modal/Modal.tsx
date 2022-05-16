@@ -69,7 +69,7 @@ const Modal = (props: IModalProps) => {
               >
                 <IoCloseCircleOutline
                   size={32}
-                  color={props?.closeButton?.color || '#919199'}
+                  color={props?.closeButton?.color || '#FCEE21'}
                 />
               </button>
               {props.children}
