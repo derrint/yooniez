@@ -18,8 +18,9 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary: '#3D0C67',
-        primaryDarkest: '#200127',
+        primary: '#9322F9',
+        'primary-dark': '#3D0C67',
+        'primary-darkest': '#200127',
         secondary: '#FF4D00',
         tertiary: '#FCEE21',
         black: '#111111',
@@ -30,6 +31,7 @@ module.exports = {
       },
       boxShadow: {
         md: '0px 4px 20px rgba(0, 52, 185, 0.08);',
+        dark: '0px 43px 17px rgba(51, 5, 82, 0.04), 0px 24px 15px rgba(51, 5, 82, 0.13), 0px 11px 11px rgba(51, 5, 82, 0.21), 0px 3px 6px rgba(51, 5, 82, 0.25), 0px 0px 0px rgba(51, 5, 82, 0.25)',
       },
     },
   },

@@ -58,7 +58,7 @@ const Header = () => {
     <Background
       color="bg-primary"
       className={`fixed top-0 w-full z-10 transition-all duration-300 ${
-        state.isAnimationDone ? 'shadow-lg' : ''
+        state.isAnimationDone ? 'shadow-dark' : ''
       }`}
     >
       <Fade top duration={750} delay={0} when={state.isReady}>
@@ -68,7 +68,7 @@ const Header = () => {
               <img
                 src="/assets/images/logos/logo-yooniez-w.svg"
                 alt=""
-                className="h-4 md:h-5 lg:h-6 aspect-auto"
+                className="h-5 md:h-6 lg:h-7 aspect-auto"
               />
             }
           >
@@ -144,7 +144,7 @@ const Header = () => {
             </li>
             <li>
               <button
-                className="text-base font-bold px-4 py-3 text-primaryDarkest bg-tertiary border-2 border-tertiary"
+                className="text-base font-bold px-4 py-3 text-primary-darkest bg-tertiary border-2 border-tertiary shadow-dark"
                 onClick={() => {
                   if (!account) {
                     showModal('connect-wallet');
@@ -156,28 +156,12 @@ const Header = () => {
                 Enter The Labyrinth
               </button>
             </li>
-            <li>
-              <a
-                target={'_blank'}
-                href={
-                  'https://twitter.com/intent/tweet?hashtags=NFT%20%23WAGMI&original_referer=https%3A%2F%2Fpublish.twitter.com%2F&ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Eshare%7Ctwgr%5E&text=Game%20on!%20Joining%20%40YoonizNFT%20%23InToTheYouniverse.%20I%20bet%20you%20should%20too.&url=https%3A%2F%2Fplay.yooniez.com'
-                }
-                rel="noreferrer"
-              >
-                <button
-                  type="submit"
-                  className="flex gap-2 items-center justify-center bg-gradient-to-r from-gradient-primary-start to-gradient-primary-end h-14 w-full sm:w-16 rounded-2xl shadow-md text-white"
-                >
-                  <span className="font-bold text-sm sm:hidden">Search</span>
-                </button>
-              </a>
-            </li>
           </NavbarTwoColumns>
         </Section>
       </Fade>
 
       <Modal name="connect-wallet">
-        <div className="text-left bg-primary text-white shadow-xl p-14">
+        <div className="text-left bg-primary-dark text-white shadow-xl p-14">
           <img
             src="/assets/images/logos/logo-metamask.svg"
             alt=""
@@ -198,7 +182,7 @@ const Header = () => {
       </Modal>
 
       <Modal name="tweet">
-        <div className="text-left bg-primary text-white shadow-xl p-14">
+        <div className="text-left bg-primary-dark text-white shadow-xl p-14">
           <img
             src="/assets/images/logos/logo-twitter.svg"
             alt=""
