@@ -58,7 +58,7 @@ const Header = () => {
     <Background
       color="bg-primary"
       className={`fixed top-0 w-full z-10 transition-all duration-300 ${
-        state.isAnimationDone ? 'shadow-dark' : ''
+        state.isAnimationDone ? '' : ''
       }`}
     >
       <Fade top duration={750} delay={0} when={state.isReady}>
@@ -68,7 +68,7 @@ const Header = () => {
               <img
                 src="/assets/images/logos/logo-yooniez-w.svg"
                 alt=""
-                className="h-5 md:h-6 lg:h-7 aspect-auto"
+                className="h-7 aspect-auto"
               />
             }
           >

@@ -3,75 +3,22 @@ import React from 'react';
 // import Tippy from '@tippyjs/react';
 // import Image from 'next/image';
 import 'tippy.js/animations/scale.css';
-import { CgArrowLongLeft } from 'react-icons/cg';
-import { Fade, Zoom } from 'react-reveal';
+import { MdOutlineAccessTimeFilled } from 'react-icons/md';
+import { Fade } from 'react-reveal';
 // import { followCursor } from 'tippy.js';
 
 import { Background } from '@components/background';
 import { Section } from '@components/layout';
-import BrandGuidelines from '@images/services/brand-guidelines.gif';
-import Creatives from '@images/services/creatives.gif';
-import Playable from '@images/services/playable.gif';
-import VideoAds from '@images/services/video-ads.gif';
 
 const Banner = () => {
   const texts = [
     {
-      first: 'We do',
-      second: 'Playables',
-      third: 'for Mobile Gaming and Apps',
-      // asset:
-      //   'https://derrint.sirv.com/Images/simple-duck-studios/services/playable-1.png',
-      asset: Playable,
-    },
-    {
-      first: 'We do',
-      second: 'Creatives',
-      third: 'for Mobile Gaming and Apps',
-      // asset:
-      //   'https://derrint.sirv.com/Images/simple-duck-studios/home/portfolio-3.png',
-      asset: Creatives,
-    },
-    {
-      first: 'We do',
-      second: 'Video Ads',
-      third: 'for Mobile Gaming and Apps',
-      // asset:
-      //   'https://derrint.sirv.com/Images/simple-duck-studios/services/video-ads.png',
-      asset: VideoAds,
-    },
-    {
-      first: 'We do',
-      second: 'Branding',
-      third: 'for Mobile Gaming and Apps',
-      // asset:
-      //   'https://derrint.sirv.com/Images/simple-duck-studios/services/brand-guidelines.png',
-      asset: BrandGuidelines,
+      first: 'Into The Yooniverse',
+      second: 'Escape the Labyrinth to get the whitelist spot!',
     },
   ];
 
   const [text, setText] = React.useState(texts[0]);
-  const [isTextShown, setIsTextShown] = React.useState(true);
-
-  let i = 1;
-  React.useEffect(() => {
-    const intervalId = setInterval(async () => {
-      setIsTextShown(false);
-      setText(texts[i]);
-      if (i < texts.length - 1) {
-        i += 1;
-      } else {
-        i = 0;
-      }
-      setTimeout(() => {
-        setIsTextShown(true);
-      }, 1000);
-    }, 5000);
-
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, []);
 
   // #endregion
 
@@ -81,179 +28,75 @@ const Banner = () => {
 
   React.useEffect(() => {
     setState({ ...state, isReady: true });
+    setText(texts[0]);
 
     return () => {};
   }, []);
 
   return (
     <Background
-      color="bg-white"
-      className="relative pt-[88px] md:pt-[96px] lg:pt-[112px]"
+      color="bg-gradient-to-b from-gradient-primary-start to-gradient-primary-end
+      after:content-[''] after:absolute after:top-12 after:left-0 after:bg-[url('/assets/images/bgs/bg-labyrinth.png')] after:mix-blend-multiply after:opacity-50 after:w-full after:h-full after:bg-cover
+      "
+      className="relative pt-32"
     >
-      <div className="absolute bottom-16 left-2 items-center gap-4 -rotate-90 hidden">
-        <div>
-          <CgArrowLongLeft size={20} />
-        </div>
-        Scroll
-      </div>
-
-      <Section className="">
-        <div className="relative h-full flex flex-col justify-center z-[1] py-6">
+      <Section className="relative bg-[#3B066A] bg-opacity-40 mt-16">
+        <div className="relative h-full flex flex-col justify-center z-[1] py-16">
+          <Fade top duration={750} delay={250} when={state.isReady}>
+            <div>
+              <img
+                src="/assets/images/logos/logo-yooniez-w.svg"
+                alt=""
+                className="h-14 aspect-auto"
+              />
+            </div>
+          </Fade>
           <Fade top duration={750} delay={500} when={state.isReady}>
-            <h1 className="text-4xl sm:text-6xl xl:text-8xl font-bold text-center">
-              {text?.first}{' '}
-              {/* <Tippy
-                content={
-                  typeof text?.asset === 'string' ? (
-                    <img
-                      src={text?.asset}
-                      alt=""
-                      className="w-40 lg:w-60 object-cover aspect-square max-w-none rounded-full transition all duration-200"
-                    />
-                  ) : (
-                    <Image
-                      src={text?.asset as any}
-                      alt=""
-                      className="static w-40 lg:w-60 object-cover aspect-square max-w-none rounded-full transition all duration-200"
-                      objectFit="cover"
-                      width={200}
-                      height={200}
-                    />
-                  )
-                }
-                followCursor={true}
-                animation="scale"
-                plugins={[followCursor]}
-                allowHTML={true}
-              > */}
-              <span className="z-[1]">
-                <Fade
-                  left
-                  duration={750}
-                  delay={250}
-                  cascade
-                  when={isTextShown}
-                >
-                  <span
-                    className={`text-secondary lg:text-black sm:hover:text-secondary underlined underlined-waved transition-all duration-200`}
-                  >
-                    {text?.second}
-                  </span>
-                </Fade>
-              </span>
-              {/* </Tippy> */}
+            <h1
+              className="text-[80px] font-display text-[#F0F5FF]"
+              style={{
+                textShadow: '0px 0px 25px rgba(97, 250, 227, 0.6)',
+              }}
+            >
+              {text?.first}
             </h1>
           </Fade>
           <Fade top duration={750} delay={750} when={state.isReady}>
-            <h2 className="text-2xl sm:text-4xl xl:text-6xl font-bold mt-4 sm:mt-6 xl:mt-8  mb-10 lg:mb-20 text-center">
-              {text?.third}
+            <h2 className="text-xl -mt-4 mb-5 text-[#F0F5FF]">
+              {text?.second}
             </h2>
+            <div>
+              <div className="inline-block mb-6 px-4 py-2 text-tertiary bg-primary-darkest border-x border-y border-tertiary">
+                <span className="font-bold">83/200 </span>
+                Spots Available
+              </div>
+            </div>
           </Fade>
-
-          <Zoom duration={750} delay={500} when={state.isReady}>
-            <img
-              src="https://derrint.sirv.com/Images/simple-duck-studios/services/illustrations/3d-videos.svg"
-              alt=""
-              className="absolute right-32 top-0 w-[30px] sm:w-[40px] -z-[1] -rotate-[30deg] opacity-50"
-            />
-          </Zoom>
-
-          <Zoom duration={750} delay={1250} when={state.isReady}>
-            <img
-              src="https://derrint.sirv.com/Images/simple-duck-studios/services/illustrations/animations.svg"
-              alt=""
-              className="absolute left-0 top-20 w-[40px] sm:w-[50px] -z-[1] -rotate-[30deg] opacity-50"
-            />
-          </Zoom>
-
-          <Zoom duration={750} delay={1000} when={state.isReady}>
-            <img
-              src="https://derrint.sirv.com/Images/simple-duck-studios/services/illustrations/playables.svg"
-              alt=""
-              className="absolute right-0 top-40 w-[20px] sm:w-[30px] -z-[1] opacity-50"
-            />
-          </Zoom>
-
-          <Zoom duration={750} delay={750} when={state.isReady}>
-            <img
-              src="https://derrint.sirv.com/Images/simple-duck-studios/services/illustrations/video-ads.svg"
-              alt=""
-              className="absolute left-[45%] bottom-0 w-[40px] sm:w-[50px] -z-[1] rotate-[15deg] opacity-50"
-            />
-          </Zoom>
+          <Fade top duration={750} delay={1000} when={state.isReady}>
+            <div>
+              <button
+                className="text-base font-bold px-6 py-3 text-white bg-secondary shadow-dark"
+                onClick={() => {}}
+              >
+                Enter The Take me to the Yooniverse Labyrinth
+              </button>
+            </div>
+            <div className="text-white text-sm mt-5 flex items-center gap-2">
+              <MdOutlineAccessTimeFilled size={14} />
+              Time left to get whitelisted{' '}
+              <span className="text-tertiary font-bold">
+                40 Days 17 Hours 8 Mins
+              </span>
+            </div>
+          </Fade>
         </div>
-
-        <style jsx>
-          {`
-            @keyframes movemask {
-              0% {
-                -webkit-mask-position: 0 0;
-                mask-position: 0 0;
-              }
-
-              to {
-                -webkit-mask-position: 114px 0;
-                mask-position: 114px 0;
-              }
-            }
-            .underlined {
-              position: relative;
-            }
-
-            .underlined:after,
-            .underlined:before {
-              position: absolute;
-              width: 100%;
-              height: 11px;
-              bottom: 10px;
-              left: 0;
-              background: #000;
-              content: '';
-            }
-            .underlined:after {
-              width: 0;
-              transition: all 0.6s;
-              background: #0083ff;
-            }
-
-            .underlined:before {
-              opacity: 0.2;
-            }
-
-            .underlined:hover:after,
-            .underlined:hover:before {
-              -webkit-animation: movemask 2s linear infinite;
-              animation: movemask 2s linear infinite;
-            }
-
-            .underlined:hover:after {
-              width: 100%;
-              transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
-              background: #0083ff;
-            }
-            .underlined-waved:after,
-            .underlined-waved:before {
-              bottom: 0px !important;
-              -webkit-mask: url(https://derrint.sirv.com/Images/simple-duck-studios/home/underline-waved.svg);
-              mask: url(https://derrint.sirv.com/Images/simple-duck-studios/home/underline-waved.svg);
-            }
-
-            @media only screen and (max-width: 1024px) {
-              .underlined:after,
-              .underlined:before {
-                bottom: -10px !important;
-                -webkit-animation: movemask 2s linear infinite;
-                animation: movemask 2s linear infinite;
-              }
-
-              .underlined:after {
-                width: 100%;
-                transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
-                background: #0083ff;
-              }
-            }
-          `}
-        </style>
+        <div className="z-[1] absolute -top-16 right-0">
+          <img
+            src="/assets/images/banners/banner-yooniez.png"
+            alt=""
+            className="w-full max-w-[670px] aspect-auto"
+          />
+        </div>
       </Section>
     </Background>
   );

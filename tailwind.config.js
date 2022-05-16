@@ -15,16 +15,23 @@ module.exports = {
     // },
     fontFamily: {
       sans: ['Work Sans'],
+      display: ['Bebas Neue'],
     },
     extend: {
       colors: {
-        primary: '#9322F9',
+        primary: '#9502e9',
         'primary-dark': '#3D0C67',
         'primary-darkest': '#200127',
         secondary: '#FF4D00',
         tertiary: '#FCEE21',
         black: '#111111',
         // gray: '#888888',
+        gradient: {
+          primary: {
+            start: '#A100FF',
+            end: '#6E07AA',
+          },
+        },
       },
       lineHeight: {
         hero: '4.5rem',
