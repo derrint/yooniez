@@ -1,26 +1,25 @@
 import {
   Banner,
-  About,
-  Services,
-  Spotlight,
-  AdNetwork,
-  ContactUs,
-  Portfolio,
-  Testimonials,
+  // About,
+  // Services,
+  // Spotlight,
+  // AdNetwork,
+  // ContactUs,
+  // Portfolio,
+  // Testimonials,
 } from '@components/page/home';
 
 const Home = () => {
   return (
     <>
       <Banner />
-      <Portfolio />
+      {/* <Portfolio />
       <About />
-      {/* <Offers /> */}
       <Testimonials />
       <Services />
       <Spotlight />
       <AdNetwork />
-      <ContactUs />
+      <ContactUs /> */}
     </>
   );
 };
