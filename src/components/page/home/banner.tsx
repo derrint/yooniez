@@ -10,6 +10,8 @@ import { Fade } from 'react-reveal';
 import { Background } from '@components/background';
 import { Section } from '@components/layout';
 
+import Banner3d from './banner-3d';
+
 const Banner = () => {
   const texts = [
     {
@@ -41,8 +43,8 @@ const Banner = () => {
       "
       className="relative pt-32"
     >
-      <Section className="relative">
-        <div className="relative h-full flex flex-col justify-center z-[1] py-16">
+      <Section className="relative flex items-center">
+        <div className="relative w-1/2 h-full flex flex-col justify-center z-[1] py-8">
           <Fade top duration={750} delay={250} when={state.isReady}>
             <div className="flex items-center gap-2">
               <img
@@ -65,7 +67,7 @@ const Banner = () => {
           </Fade>
           <Fade top duration={750} delay={500} when={state.isReady}>
             <h1
-              className="text-[50px] font-display text-[#F0F5FF]"
+              className="text-[40px] font-headline text-[#F0F5FF]"
               style={{
                 textShadow: '0px 0px 25px rgba(97, 250, 227, 0.6)',
               }}
@@ -77,7 +79,7 @@ const Banner = () => {
           <Fade top duration={750} delay={750} when={state.isReady}>
             <h2 className="text-[40px] mt-2 mb-5 pt-4 font-headline text-white max-w-[488px] relative text-shadow-lg">
               <div className="border-t-2 border-white opacity-30 absolute top-0 left-0 w-full" />
-              <div className="border-t-2 border-secondary opacity-80 absolute top-0 left-0 w-[188px]" />
+              <div className="border-t-2 border-secondary opacity-80 absolute top-0 left-0 w-[226px]" />
               {text?.third}
             </h2>
             <div>
@@ -109,12 +111,13 @@ const Banner = () => {
             </div>
           </Fade>
         </div>
-        <div className="z-[1] absolute -top-16 right-0">
-          <img
+        <div className="w-1/2 z-[1]">
+          {/* <img
             src="/assets/images/banners/banner-yooniez.png"
             alt=""
             className="w-full max-w-[670px] aspect-auto"
-          />
+          /> */}
+          <Banner3d />
         </div>
       </Section>
     </Background>

@@ -15,7 +15,6 @@ module.exports = {
     // },
     fontFamily: {
       sans: ['Work Sans'],
-      display: ['Bebas Neue'],
       headline: ['Russo One'],
       script: ['Caveat'],
     },
