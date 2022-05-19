@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
 
 import { useEthers } from '@usedapp/core';
@@ -22,14 +23,6 @@ const Header = () => {
     isReady: false,
     isAnimationDone: false,
   });
-
-  React.useEffect(() => {
-    setTimeout(() => {
-      setState({ ...state, isReady: true });
-    }, 250);
-
-    return () => {};
-  }, []);
 
   React.useEffect(() => {
     if (state.isReady) {
@@ -68,6 +61,10 @@ const Header = () => {
   React.useEffect(() => {
     // onScroll();
     window.addEventListener('scroll', onScroll);
+
+    setTimeout(() => {
+      setState({ ...state, isReady: true });
+    }, 250);
 
     return () => {};
   }, []);
