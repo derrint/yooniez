@@ -15,7 +15,7 @@ const Banner3d = () => {
   };
 
   return (
-    <Canvas style={{}}>
+    <Canvas style={{ height: 490 }}>
       <ambientLight intensity={0.6} />
       <spotLight
         intensity={0.5}

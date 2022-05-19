@@ -2,13 +2,15 @@ import React from 'react';
 
 import { useEthers } from '@usedapp/core';
 // import Link from 'next/link';
+import { FaDiscord, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { FiArrowRight } from 'react-icons/fi';
 import { Fade } from 'react-reveal';
 
 import { Background } from '@components/background';
 // import { DropdownMenu } from '@components/dropdown';
 import { Section } from '@components/layout';
 import { Modal } from '@components/modal';
-import { NavbarTwoColumns } from '@components/navigation/NavbarTwoColumns';
+import { NavbarThreeColumns } from '@components/navigation/index';
 // import { menus } from '@data/index';
 import { useActions, useState } from '@overmind/index';
 
@@ -54,6 +56,22 @@ const Header = () => {
     return () => {};
   }, [account]);
 
+  const [isScrolled, setIsScrolled] = React.useState(false);
+  const onScroll = () => {
+    if (window.scrollY >= 10) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  };
+
+  React.useEffect(() => {
+    // onScroll();
+    window.addEventListener('scroll', onScroll);
+
+    return () => {};
+  }, []);
+
   return (
     <Background
       color="bg-transparent"
@@ -62,14 +80,35 @@ const Header = () => {
       }`}
     >
       <Fade top duration={750} delay={0} when={state.isReady}>
-        <Section yPadding="py-6" className="relative" isHeader>
-          <NavbarTwoColumns
+        <Section
+          yPadding="py-5 pb-6"
+          className={`relative mt-8 lg:!px-8 rounded-full transition-colors duration-500 ${
+            isScrolled ? 'bg-white' : ''
+          }`}
+          isHeader
+        >
+          <NavbarThreeColumns
             logo={
               <img
-                src="/assets/images/logos/logo-yooniez-w.svg"
+                src="/assets/images/logos/logo-yooniez.svg"
                 alt=""
-                className="h-7 aspect-auto"
+                className={`h-8 aspect-auto transition-opacity duration-300 ${
+                  isScrolled ? '' : 'hidden'
+                }`}
               />
+            }
+            leftComponent={
+              <div className="pt-1 flex items-center gap-5">
+                <div className={isScrolled ? 'text-primary' : 'text-white'}>
+                  <FaDiscord size={18} />
+                </div>
+                <div className={isScrolled ? 'text-primary' : 'text-white'}>
+                  <FaInstagram size={18} />
+                </div>
+                <div className={isScrolled ? 'text-primary' : 'text-white'}>
+                  <FaTwitter size={18} />
+                </div>
+              </div>
             }
           >
             {/* {menus.map(
@@ -116,7 +155,13 @@ const Header = () => {
             )} */}
             <li>
               <button
-                className="text-base font-bold px-4 py-3 border-2 border-white flex gap-2 text-white"
+                className="
+                  flex gap-2
+                  px-5 py-3
+                  rounded-full shadow-lg bg-white
+                  border-x border-y border-black
+                  text-base font-bold text-black
+                "
                 onClick={() => {
                   if (!account) {
                     showModal('connect-wallet');
@@ -142,9 +187,19 @@ const Header = () => {
                 )}
               </button>
             </li>
-            <li>
+            <li
+              className={`transition-opacity duration-500 ${
+                isScrolled ? '' : 'hidden'
+              }`}
+            >
               <button
-                className="text-base font-bold px-4 py-3 text-primary-darkest bg-tertiary border-2 border-tertiary shadow-dark"
+                className="
+                  flex gap-2 items-center
+                  px-5 py-3
+                  rounded-full shadow-lg bg-tertiary
+                  border-x border-y border-tertiary-dark
+                  text-base font-bold text-tertiary-dark
+                "
                 onClick={() => {
                   if (!account) {
                     showModal('connect-wallet');
@@ -153,10 +208,11 @@ const Header = () => {
                   }
                 }}
               >
-                Enter The Labyrinth
+                Enter Labyrinth
+                <FiArrowRight size={18} />
               </button>
             </li>
-          </NavbarTwoColumns>
+          </NavbarThreeColumns>
         </Section>
       </Fade>
 

@@ -21,11 +21,13 @@ module.exports = {
     extend: {
       colors: {
         primary: '#500D8C',
-        'primary-dark': '#3D0C67',
-        'primary-darkest': '#200127',
+        'primary-light': '#A100FF',
+        'primary-dark': '#20003D',
         secondary: '#61FAE3',
+        'secondary-dark': '#002520',
         tertiary: '#EEE560',
-        // text: '#111111',
+        'tertiary-dark': '#242200',
+        black: '#111111',
         // gray: '#888888',
         gradient: {
           primary: {
@@ -39,7 +41,7 @@ module.exports = {
       },
       boxShadow: {
         md: '0px 2px 10px #441463',
-        lg: '0px 4px 0px #191919',
+        lg: '0px 4px 0px #111111',
       },
     },
   },

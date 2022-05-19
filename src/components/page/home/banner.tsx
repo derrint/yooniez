@@ -102,7 +102,12 @@ const Banner = () => {
               </div>
               <div>
                 <button
-                  className="text-base font-bold px-5 py-4 bg-tertiary shadow-lg rounded-full text-[#191919]"
+                  className="
+                    px-5 py-3
+                    rounded-full shadow-lg bg-tertiary
+                    border-x border-y border-tertiary-dark
+                    text-base font-bold text-tertiary-dark
+                  "
                   onClick={() => {}}
                 >
                   Enter Labyrinth to Get Spot
