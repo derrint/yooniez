@@ -214,7 +214,7 @@ const Header = () => {
       </Fade>
 
       <Modal name="connect-wallet">
-        <div className="text-left bg-primary-dark text-white shadow-xl p-14">
+        <div className="text-left bg-primary-dark text-white shadow-xl p-14 rounded-2xl">
           <img
             src="/assets/images/logos/logo-metamask.svg"
             alt=""
@@ -226,7 +226,12 @@ const Header = () => {
             <br /> the Labyrinth
           </p>
           <button
-            className="text-base font-bold px-4 py-3 bg-secondary text-white"
+            className="
+              px-5 py-3
+              rounded-full shadow-lg bg-tertiary
+              border-x border-y border-tertiary-dark
+              text-base font-bold text-tertiary-dark
+            "
             onClick={handleConnectWallet}
           >
             Connect with Metamask
@@ -235,7 +240,7 @@ const Header = () => {
       </Modal>
 
       <Modal name="tweet">
-        <div className="text-left bg-primary-dark text-white shadow-xl p-14">
+        <div className="text-left bg-primary-dark text-white shadow-xl p-14 rounded-2xl">
           <img
             src="/assets/images/logos/logo-twitter.svg"
             alt=""
@@ -250,7 +255,13 @@ const Header = () => {
             https://uniques-links. here #NFT #WAGMI“
           </p>
           <a
-            className="inline-block text-base font-bold px-4 py-3 bg-secondary text-white"
+            className="
+              inline-block
+              px-5 py-3
+              rounded-full shadow-lg bg-tertiary
+              border-x border-y border-tertiary-dark
+              text-base font-bold text-tertiary-dark
+            "
             target={'_blank'}
             href={
               'https://twitter.com/intent/tweet?hashtags=NFT%20%23WAGMI&original_referer=https%3A%2F%2Fpublish.twitter.com%2F&ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Eshare%7Ctwgr%5E&text=Game%20on!%20Joining%20%40YoonizNFT%20%23InToTheYouniverse.%20I%20bet%20you%20should%20too.&url=https%3A%2F%2Fplay.yooniez.com'
