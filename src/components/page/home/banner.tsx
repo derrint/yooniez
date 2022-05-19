@@ -13,8 +13,9 @@ import { Section } from '@components/layout';
 const Banner = () => {
   const texts = [
     {
-      first: 'Into The Yooniverse',
-      second: 'Escape the Labyrinth to get the whitelist spot!',
+      first: 'Into The',
+      second: 'Yooniverse',
+      third: 'Escape the Labyrinth to get the whitelist spot!',
     },
   ];
 
@@ -35,58 +36,76 @@ const Banner = () => {
 
   return (
     <Background
-      color="bg-gradient-to-b from-gradient-primary-start to-gradient-primary-end
-      after:content-[''] after:absolute after:top-12 after:left-0 after:bg-[url('/assets/images/bgs/bg-labyrinth.png')] after:mix-blend-multiply after:opacity-50 after:w-full after:h-full after:bg-cover
+      color="bg-primary
+      after:content-[''] after:absolute after:top-0 after:left-0 after:bg-[url('/assets/images/bgs/bg-labyrinth.png')] after:mix-blend-multiply after:w-full after:h-full after:bg-cover
       "
       className="relative pt-32"
     >
-      <Section className="relative bg-[#3B066A] bg-opacity-40 mt-16">
+      <Section className="relative">
         <div className="relative h-full flex flex-col justify-center z-[1] py-16">
           <Fade top duration={750} delay={250} when={state.isReady}>
-            <div>
+            <div className="flex items-center gap-2">
               <img
                 src="/assets/images/logos/logo-yooniez-w.svg"
                 alt=""
-                className="h-14 aspect-auto"
+                className="h-[22px] aspect-auto"
+                style={{
+                  filter: 'drop-shadow(0px 0px 25px rgba(97, 250, 227, 0.6))',
+                }}
               />
+              <h3
+                className="text-lg font-bold font-script text-secondary"
+                style={{
+                  transform: 'rotate(-7.06deg)',
+                }}
+              >
+                {text?.first}
+              </h3>
             </div>
           </Fade>
           <Fade top duration={750} delay={500} when={state.isReady}>
             <h1
-              className="text-[80px] font-display text-[#F0F5FF]"
+              className="text-[50px] font-display text-[#F0F5FF]"
               style={{
                 textShadow: '0px 0px 25px rgba(97, 250, 227, 0.6)',
               }}
             >
-              {text?.first}
+              {text?.second}
             </h1>
           </Fade>
+
           <Fade top duration={750} delay={750} when={state.isReady}>
-            <h2 className="text-xl -mt-4 mb-5 text-[#F0F5FF]">
-              {text?.second}
+            <h2 className="text-[40px] mt-2 mb-5 pt-4 font-headline text-white max-w-[488px] relative text-shadow-lg">
+              <div className="border-t-2 border-white opacity-30 absolute top-0 left-0 w-full" />
+              <div className="border-t-2 border-secondary opacity-80 absolute top-0 left-0 w-[188px]" />
+              {text?.third}
             </h2>
             <div>
-              <div className="inline-block mb-6 px-4 py-2 text-tertiary bg-primary-darkest border-x border-y border-tertiary">
+              <div className="inline-block mb-6 px-4 py-2 text-secondary bg-black/40 border-x border-y border-secondary rounded-full shadow-md">
                 <span className="font-bold">83/200 </span>
                 Spots Available
               </div>
             </div>
           </Fade>
           <Fade top duration={750} delay={1000} when={state.isReady}>
-            <div>
-              <button
-                className="text-base font-bold px-6 py-3 text-white bg-secondary shadow-dark"
-                onClick={() => {}}
-              >
-                Enter The Take me to the Yooniverse Labyrinth
-              </button>
-            </div>
-            <div className="text-white text-sm mt-5 flex items-center gap-2">
-              <MdOutlineAccessTimeFilled size={14} />
-              Time left to get whitelisted{' '}
-              <span className="text-tertiary font-bold">
-                40 Days 17 Hours 8 Mins
-              </span>
+            <div className="flex items-center mt-5 bg-black/30 shadow-md pl-6 p-4 rounded-2xl w-fit gap-5">
+              <div className="text-white text-sm flex items-start gap-2">
+                <MdOutlineAccessTimeFilled size={20} className="mt-1" />
+                <div>
+                  Time left to get whitelisted <br />
+                  <span className="text-tertiary font-bold">
+                    40 Days 17 Hours 8 Mins
+                  </span>
+                </div>
+              </div>
+              <div>
+                <button
+                  className="text-base font-bold px-5 py-4 bg-tertiary shadow-lg rounded-full text-[#191919]"
+                  onClick={() => {}}
+                >
+                  Enter Labyrinth to Get Spot
+                </button>
+              </div>
             </div>
           </Fade>
         </div>

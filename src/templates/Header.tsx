@@ -56,7 +56,7 @@ const Header = () => {
 
   return (
     <Background
-      color="bg-primary"
+      color="bg-transparent"
       className={`fixed top-0 w-full z-10 transition-all duration-300 ${
         state.isAnimationDone ? '' : ''
       }`}

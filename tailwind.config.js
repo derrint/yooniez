@@ -16,15 +16,17 @@ module.exports = {
     fontFamily: {
       sans: ['Work Sans'],
       display: ['Bebas Neue'],
+      headline: ['Russo One'],
+      script: ['Caveat'],
     },
     extend: {
       colors: {
-        primary: '#9502e9',
+        primary: '#500D8C',
         'primary-dark': '#3D0C67',
         'primary-darkest': '#200127',
-        secondary: '#FF4D00',
-        tertiary: '#FCEE21',
-        black: '#111111',
+        secondary: '#61FAE3',
+        tertiary: '#EEE560',
+        // text: '#111111',
         // gray: '#888888',
         gradient: {
           primary: {
@@ -37,8 +39,8 @@ module.exports = {
         hero: '4.5rem',
       },
       boxShadow: {
-        md: '0px 4px 20px rgba(0, 52, 185, 0.08);',
-        dark: '0px 43px 17px rgba(51, 5, 82, 0.04), 0px 24px 15px rgba(51, 5, 82, 0.13), 0px 11px 11px rgba(51, 5, 82, 0.21), 0px 3px 6px rgba(51, 5, 82, 0.25), 0px 0px 0px rgba(51, 5, 82, 0.25)',
+        md: '0px 2px 10px #441463',
+        lg: '0px 4px 0px #191919',
       },
     },
   },
