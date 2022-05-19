@@ -1,5 +1,5 @@
 /* eslint-disable no-return-assign */
-import { Suspense, useRef, useState } from 'react';
+import { Suspense, useRef } from 'react';
 
 import { OrbitControls, useGLTF } from '@react-three/drei';
 import { Canvas, useFrame } from '@react-three/fiber';
@@ -23,17 +23,17 @@ const Home = () => {
     useFrame((_state, _delta) => (ref.current.rotation.y += 0.01));
     // const gltf = useLoader(GLTFLoader, './assets/3d/silent_ash/scene.gltf');
     const gltf = useGLTF('./assets/3d/silent_ash/scene.gltf');
-    const [hovered, hover] = useState(false);
+    // const [hovered, hover] = useState(false);
 
     return (
       <>
         <primitive
           ref={ref}
           object={gltf.scene}
-          scale={hovered ? scale * 1.2 : scale}
+          scale={scale}
           position={position}
-          onPointerOver={(_event: any) => hover(true)}
-          onPointerOut={(_event: any) => hover(false)}
+          // onPointerOver={(_event: any) => hover(true)}
+          // onPointerOut={(_event: any) => hover(false)}
         />
       </>
     );
