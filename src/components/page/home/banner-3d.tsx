@@ -4,7 +4,7 @@ import { OrbitControls, useGLTF } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 
 const Banner3d = () => {
-  const Model = ({ scale = 3, position = [0, -2.75, 0] }) => {
+  const Model = ({ scale = 3.5, position = [0, -3.25, 0] }) => {
     const gltf = useGLTF('./assets/3d/silent_ash/scene.gltf');
 
     return (
@@ -15,7 +15,7 @@ const Banner3d = () => {
   };
 
   return (
-    <Canvas style={{ height: 490 }}>
+    <Canvas style={{ height: 550 }}>
       <ambientLight intensity={0.6} />
       <spotLight
         intensity={0.5}
