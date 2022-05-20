@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
 
 // import Tippy from '@tippyjs/react';
@@ -41,7 +42,7 @@ const Banner = () => {
       color="bg-primary
       after:content-[''] after:absolute after:top-0 after:left-0 after:bg-[url('/assets/images/bgs/bg-labyrinth.png')] after:mix-blend-multiply after:w-full after:h-full after:bg-cover
       "
-      className="relative pt-32"
+      className="relative pt-32 pb-16"
     >
       <Section className="relative flex items-center">
         <div className="relative w-1/2 h-full flex flex-col justify-center z-[1] py-8">
@@ -56,7 +57,7 @@ const Banner = () => {
                 }}
               />
               <h3
-                className="text-lg font-bold font-script text-secondary"
+                className="text-lg font-bold font-script text-secondary tracking-tighter"
                 style={{
                   transform: 'rotate(-7.06deg)',
                 }}
