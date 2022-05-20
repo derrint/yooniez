@@ -51,7 +51,7 @@ const Header = () => {
 
   const [isScrolled, setIsScrolled] = React.useState(false);
   const onScroll = () => {
-    if (window.scrollY >= 10) {
+    if (window.scrollY >= 80) {
       setIsScrolled(true);
     } else {
       setIsScrolled(false);
@@ -80,7 +80,7 @@ const Header = () => {
         <Section
           yPadding="py-5 pb-6"
           className={`relative mt-8 lg:!px-8 rounded-full transition-colors duration-500 ${
-            isScrolled ? 'bg-white' : ''
+            isScrolled ? 'bg-white shadow-xl' : ''
           }`}
           isHeader
         >

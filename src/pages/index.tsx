@@ -1,6 +1,6 @@
 import {
   Banner,
-  // About,
+  About,
   // Services,
   // Spotlight,
   // AdNetwork,
@@ -13,8 +13,8 @@ const Home = () => {
   return (
     <>
       <Banner />
-      {/* <Portfolio />
       <About />
+      {/* <Portfolio />
       <Testimonials />
       <Services />
       <Spotlight />
