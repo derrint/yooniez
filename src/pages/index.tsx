@@ -1,11 +1,11 @@
 import {
   Banner,
   About,
+  Chars,
   // Services,
   // Spotlight,
   // AdNetwork,
   // ContactUs,
-  // Portfolio,
   // Testimonials,
 } from '@components/page/home';
 
@@ -14,8 +14,8 @@ const Home = () => {
     <>
       <Banner />
       <About />
-      {/* <Portfolio />
-      <Testimonials />
+      <Chars />
+      {/* <Testimonials />
       <Services />
       <Spotlight />
       <AdNetwork />
