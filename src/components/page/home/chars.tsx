@@ -84,6 +84,21 @@ const Chars = () => {
             </div>
           </Fade>
         </Marquee>
+        <div className="bg-white mt-10">
+          <Marquee gradient={false} speed={40}>
+            <Fade bottom duration={750} delay={750} cascade>
+              <div
+                className={`flex w-full justify-around font-headline uppercase gap-0`}
+              >
+                {items.map((_item: any, idx: number) => (
+                  <div key={idx} className="ml-1 my-1">
+                    Yooniez &bull; 7777 Character Unique NFT &bull;
+                  </div>
+                ))}
+              </div>
+            </Fade>
+          </Marquee>
+        </div>
       </div>
     </Background>
   );
