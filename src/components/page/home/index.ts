@@ -7,6 +7,7 @@ import Offers from './offers';
 import Services from './services';
 import Spotlight from './spotlight';
 import Testimonials from './testimonials';
+import Traits from './traits';
 
 export {
   Banner,
@@ -18,4 +19,5 @@ export {
   ContactUs,
   Chars,
   Testimonials,
+  Traits,
 };

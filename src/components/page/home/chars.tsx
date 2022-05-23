@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
 
 import 'tippy.js/animations/scale.css';
@@ -53,7 +54,7 @@ const Chars = () => {
 
   return (
     <Background color="bg-primary" className="relative">
-      <div className="relative h-full flex flex-col gap-10 justify-center z-[1] py-6">
+      <div className="relative h-full flex flex-col gap-10 justify-center z-[1] pt-6">
         <Marquee gradient={false} speed={80}>
           <Fade bottom duration={750} delay={750} cascade>
             <div className={`flex w-full justify-around `}>

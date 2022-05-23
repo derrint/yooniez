@@ -2,6 +2,7 @@ import {
   Banner,
   About,
   Chars,
+  Traits,
   // Services,
   // Spotlight,
   // AdNetwork,
@@ -15,6 +16,7 @@ const Home = () => {
       <Banner />
       <About />
       <Chars />
+      <Traits />
       {/* <Testimonials />
       <Services />
       <Spotlight />
